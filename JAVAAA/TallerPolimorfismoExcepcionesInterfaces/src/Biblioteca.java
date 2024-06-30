@@ -8,6 +8,10 @@ public class Biblioteca  {
 
 
 
+    public ArrayList<Publicacion> getListaLibros() {
+        return listaLibros;
+    }
+
     public Biblioteca() {
         listaPubli = new ArrayList<Publicacion>();
         listaLibros = new ArrayList<Publicacion>();
@@ -32,7 +36,10 @@ public class Biblioteca  {
         }
     }
 
-
-
-
+    public void mostrarLibros(){//Permite saber que libros de toda la coleccion con la que cuenta la bilbioteca sigue estando disponible
+        for(Publicacion publicacion: listaLibros)
+        {
+            publicacion.mostrarInfo();
+        }
+    }
 }

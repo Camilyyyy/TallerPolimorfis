@@ -27,7 +27,7 @@ public class Libro extends Publicacion{
             System.out.println("---------------------" +"\n");
             System.out.println("Libros" +"\n");
             System.out.println("---------------------" +"\n");
-            System.out.println("Titulo Libri: " +titulo+"\n" +"Autor:"+autor+"\n" +"No esta prestado");
+            System.out.println("Titulo Libro: " +titulo+"\n" +"Autor:"+autor+"\n" +"No esta prestado");
 
         }
     }

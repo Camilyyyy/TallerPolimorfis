@@ -14,12 +14,8 @@ public class Usuario implements Prestable {
         publisPrestadasList=new ArrayList<Publicacion>();
     }
 
-    public Usuario() {
-    }
-
-
     @Override
-    public void prestar(Biblioteca biblio,Publicacion libro) {
+    public void prestar(Biblioteca biblio,Publicacion libro) {//Se interpreata que prestar es como ir a pedri un libro dentro de la biblio
         if (libro instanceof Libro){
             Libro l1=(Libro) libro;
             if (!biblio.pertenece(libro)){
@@ -29,11 +25,16 @@ public class Usuario implements Prestable {
             if (l1.isPrestado()){
                 JOptionPane.showMessageDialog(null,"El libro ya fue prestado");
             }
-            else{
-                l1.setPrestado(true);
-                publisPrestadasList.add(libro);
+            if(!l1.isPrestado()){
                 JOptionPane.showMessageDialog(null,"Libro prestado correctamente");
+                publisPrestadasList.add(libro);
+                biblio.getListaLibros().remove(libro);
+                l1.setPrestado(true);
             }
+        }
+
+        if (libro instanceof Revista){
+            JOptionPane.showMessageDialog(null,"Las revistas no se pueden prestar ");
         }
     }
 
@@ -48,11 +49,16 @@ public class Usuario implements Prestable {
             if (l1.isPrestado() && publisPrestadasList.contains(libro)){
                 l1.setPrestado(false);
                 publisPrestadasList.remove(libro);
+                biblio.getListaLibros().add(libro);
                 JOptionPane.showMessageDialog(null,"El libro se devolvio de manera correcta");
             }
             else{
                 JOptionPane.showMessageDialog(null,"El Libro no se puede devolver pues nunca fue prestado");
             }
+        }
+
+        if (libro instanceof Revista){
+            JOptionPane.showMessageDialog(null,"Las revistas no se pueden devolper pues no se pueden prestar inicialmente ");
         }
     }
 
