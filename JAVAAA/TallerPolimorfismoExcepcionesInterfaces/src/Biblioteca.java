@@ -1,18 +1,21 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
-public class Biblioteca implements Prestable {
+public class Biblioteca  {
 
     private ArrayList <Publicacion> listaPubli;
-    private ArrayList <Libro> listaLibros;
+    private ArrayList <Publicacion> listaLibros;
 
 
 
     public Biblioteca() {
         listaPubli = new ArrayList<Publicacion>();
-        listaLibros = new ArrayList<Libro>();
+        listaLibros = new ArrayList<Publicacion>();
 
     }
-
+    public boolean pertenece(Publicacion publicacion) {
+        return listaPubli.contains(publicacion);
+    }
     public void agregarPublicacion(Publicacion publicacion){
 
         listaPubli.add(publicacion);
@@ -30,18 +33,6 @@ public class Biblioteca implements Prestable {
     }
 
 
-    @Override
-    public void prestar() {
 
-    }
 
-    @Override
-    public void devolver() {
-
-    }
-
-    @Override
-    public boolean estaPrestado() {
-        return false;
-    }
 }

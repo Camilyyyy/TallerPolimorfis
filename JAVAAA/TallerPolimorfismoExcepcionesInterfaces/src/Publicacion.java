@@ -1,4 +1,4 @@
-public abstract class Publicacion implements Prestable {
+public abstract class Publicacion  {
 
     protected String titulo;
     protected String autor;
